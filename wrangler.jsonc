@@ -3,16 +3,40 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cloudflare-image-worker",
-	"main": "src/index.js",
-	"compatibility_date": "2026-03-01",
-	"observability": {
-		"enabled": true
-	},
-	"compatibility_flags": [
-		"nodejs_compat"
-	]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-image-worker",
+  "main": "src/index.js",
+  "compatibility_date": "2026-03-01",
+
+  "observability": {
+    "enabled": true
+  },
+
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+
+  "r2_buckets": [
+    {
+      "binding": "R2",
+      "bucket_name": "sample-images",
+      "remote": true
+    }
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "image_metadata",
+      "database_id": "37bee712-08e2-4e64-a25f-d4664870c9f8",
+	  "remote": true
+    }
+  ],
+  "ai": {
+    "binding": "AI",
+	"remote": true
+  }
+}
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -41,4 +65,3 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
 	 */
 	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
-}
