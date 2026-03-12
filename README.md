@@ -1,8 +1,6 @@
-# Cloudflare Edge Image Processing with Workers AI
+# Cloudflare Edge with Workers AI
 
-This project implements an edge-based image processing system using Cloudflare's serverless platform. Images are stored in R2 object storage and served through a Cloudflare Worker. If an image does not already have a description, Workers AI automatically generates accessibility alt-text which is stored in a D1 database.
-
-The system demonstrates how Cloudflare services can be combined to build scalable AI-powered media pipelines at the edge.
+This project implements a system using Cloudflare's serverless platform. Images are stored in R2 object storage and served through a Cloudflare Worker. If an image does not already have a description, Workers AI automatically generates accessibility alt-text which is stored in a D1 database.
 
 ---
 
@@ -51,9 +49,7 @@ Returns a list of images stored in the R2 bucket.
 
 GET /<image-name>
 
-Example:
-
-http://localhost:8787/photo-1500530855697-b586d89ba3ee.jpg
+Example: http://localhost:8787/photo-1500530855697-b586d89ba3ee.jpg
 
 Returns the image with a custom header:
 
@@ -125,7 +121,7 @@ X-Alt-Text: A road with a yellow line going through a mountain range
 
 ---
 
-## Repository Structure
+## Repo Structure
 
 cloudflare-image-worker/
 │
@@ -135,10 +131,3 @@ cloudflare-image-worker/
 ├── wrangler.jsonc
 ├── package.json
 └── README.md
-
-
----
-
-## Author
-Ishar Sehgal
-Cloudflare Workers AI Assignment Implementation
